@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: u-app
+    runtime: docker
+    plan: starter
+    region: singapore
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: APP_URL
+        sync: false
+      - key: FIREBASE_PROJECT_ID
+        sync: false
+      - key: FIREBASE_CLIENT_EMAIL
+        sync: false
+      - key: FIREBASE_PRIVATE_KEY
+        sync: false
+      - key: GITHUB_TOKEN
+        sync: false
+      - key: GITHUB_BUILD_REPO
+        sync: false
+      - key: DOWNLOAD_TTL_SECONDS
+        value: "540"
+      - key: UPLOAD_DIR
+        value: /var/uapp/builds
+      - key: OTP_API_BASE
+        value: https://otpapi-seven.vercel.app
